@@ -13,13 +13,13 @@ public:
 
 
 	// Lib initialization and cleanup, mandatory before calling "createWindow()"
-	virtual void initialize() = 0;
+	virtual bool initialize() = 0;
 
 	virtual void quit() = 0;
 
 
 	// Creating a window. Only one can be active at a time.
-	virtual void createWindow(int width, int height, const char* title) = 0;
+	virtual bool createWindow(int width, int height, const char* title) = 0;
 
 	virtual bool isWindowOpen() const = 0;
 
