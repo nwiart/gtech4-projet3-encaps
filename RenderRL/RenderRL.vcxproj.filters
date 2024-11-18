@@ -18,9 +18,15 @@
     <ClCompile Include="WindowRL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteRL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WindowRL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

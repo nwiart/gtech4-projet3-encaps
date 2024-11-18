@@ -1,5 +1,7 @@
+
 #include "WindowRL.h"
-#include "raylib.h"
+
+#include "SpriteRL.h"
 
 
 WindowRL::WindowRL()
@@ -45,7 +47,8 @@ void WindowRL::setTitle(const char* title)
 
 Sprite* WindowRL::createSprite()
 {
-    return 0;
+    SpriteRL* s = new SpriteRL();
+    return s;
 }
 
 void WindowRL::setBackgroundColor(float r, float g, float b)
@@ -61,6 +64,15 @@ void WindowRL::beginDraw()
 
 void WindowRL::drawSprite(Sprite* sprite, int x, int y)
 {
+    SpriteRL* s = reinterpret_cast<SpriteRL*>(sprite);
+
+    if (!s)
+    {
+        return;
+    }
+    
+
+    DrawTexture(s->s, s->x, s->y, WHITE);
 }
 
 
