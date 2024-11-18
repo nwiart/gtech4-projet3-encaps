@@ -1,17 +1,17 @@
 #pragma once
 
 
-class Color
+class ColorRGBA
 {
 public:
 
-	inline Color()
+	inline ColorRGBA()
 		: r(0xFF), g(0xFF), b(0xFF), a(0xFF)
 	{
 
 	}
 
-	inline Color(float r, float g, float b, float a = 1.0F)
+	inline ColorRGBA(float r, float g, float b, float a = 1.0F)
 		: r(r * 255.0F), g(g * 255.0F), b(b * 255.0F), a(a * 255.0F)
 	{
 
