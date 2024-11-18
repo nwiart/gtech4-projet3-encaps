@@ -5,6 +5,7 @@
 #include "Sprite.h"
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
@@ -103,16 +104,7 @@ int main(int argc, char** argv)
 
 	window->createWindow(1280, 720, "Bouncing balls");
 
-	GameObject objects[12];
-	for (int i = 0; i < 12; i++) {
-		Sprite* sprite = window->createSprite();
-		sprite->loadTexture("pitballs.png");
-		sprite->setPosition(400, 300);
-		sprite->setSize(80, 80);
-
-		objects[i] = GameObject(sprite);
-		objects[i].setVelocity((rand() / (float) RAND_MAX - 0.5F) * 10.0F, (rand() / (float) RAND_MAX - 0.5F) * 10.0F);
-	}
+	vector<GameObject> objects;
 
 	time_t t0 = 0, t1 = 0;
 
@@ -123,12 +115,20 @@ int main(int argc, char** argv)
 		if (t1 != t0) {
 			t0 = t1;
 			window->setBackgroundColor(rand() / (float) RAND_MAX, rand() / (float) RAND_MAX, rand() / (float) RAND_MAX);
+
+			Sprite* sprite = window->createSprite();
+			sprite->loadTexture("pitballs.png");
+			sprite->setPosition(400, 300);
+			sprite->setSize(80, 80);
+
+			objects.emplace_back(sprite);
+			objects.back().setVelocity((rand() / (float)RAND_MAX - 0.5F) * 20.0F, (rand() / (float)RAND_MAX - 0.5F) * 20.0F);
 		}
 
 		window->beginDraw();
-		for (int i = 0; i < 12; i++) {
-			objects[i].update();
-			window->drawSprite(objects[i].getSprite(), 0, 0);
+		for (GameObject& obj : objects) {
+			obj.update();
+			window->drawSprite(obj.getSprite(), 0, 0);
 		}
 		window->endDraw();
 	}
