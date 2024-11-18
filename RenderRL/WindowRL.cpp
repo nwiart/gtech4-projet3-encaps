@@ -28,6 +28,7 @@ bool WindowRL::createWindow(int width, int height, const char* title)
 {
     InitWindow(width, height, title);
     SetTargetFPS(60);
+    SetConfigFlags(FLAG_VSYNC_HINT);
     return true;
 }
 
