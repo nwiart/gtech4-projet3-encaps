@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.h"
+#include "Color.h"
 
 
 class WindowRL : public Window
@@ -22,6 +23,7 @@ public:
 	virtual bool createWindow(int width, int height, const char* title) override;
 
 	virtual bool isWindowOpen() const override;
+	virtual void processEvents() override;
 
 	virtual void setTitle(const char* title) override;
 
@@ -31,5 +33,12 @@ public:
 
 	virtual void setBackgroundColor(float r, float g, float b) override;
 
+	virtual void beginDraw() override;
 	virtual void drawSprite(Sprite* sprite, int x, int y) override;
+	virtual void endDraw() override;
+
+
+private:
+
+	ColorRGBA color;
 };
