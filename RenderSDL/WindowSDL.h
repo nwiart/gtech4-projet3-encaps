@@ -32,7 +32,7 @@ public:
 
 
 	// Drawing methods.
-	virtual Sprite* createSprite(const char* imagePath) override;
+	virtual Sprite* createSprite() override;
 
 	virtual void setBackgroundColor(float r, float g, float b) override;
 

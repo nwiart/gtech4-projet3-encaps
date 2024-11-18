@@ -28,7 +28,7 @@ public:
 
 
 	// Drawing methods.
-	virtual Sprite* createSprite(const char* imagePath) = 0;
+	virtual Sprite* createSprite() = 0;
 
 	virtual void setBackgroundColor(float r, float g, float b) = 0;
 

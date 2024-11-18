@@ -1,5 +1,7 @@
 #include "WindowSDL.h"
 
+#include "SpriteSDL.h"
+
 #include "SDL.h"
 
 
@@ -71,9 +73,10 @@ void WindowSDL::setTitle(const char* title)
 }
 
 
-Sprite* WindowSDL::createSprite(const char* imagePath)
+Sprite* WindowSDL::createSprite()
 {
-	return 0;
+	SpriteSDL* s = new SpriteSDL();
+	return s;
 }
 
 void WindowSDL::setBackgroundColor(float r, float g, float b)
@@ -89,7 +92,7 @@ void WindowSDL::beginDraw()
 
 void WindowSDL::drawSprite(Sprite* sprite, int x, int y)
 {
-
+	
 }
 
 void WindowSDL::endDraw()
