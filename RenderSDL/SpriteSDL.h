@@ -17,5 +17,9 @@ public:
 	virtual void setPosition(int x, int y) override;
 	virtual void setSize(int w, int h) override;
 
-	virtual void draw() override;
+
+private:
+
+	SDL_Rect rect;
+	SDL_Texture* texture;
 };

@@ -16,6 +16,4 @@ public:
 
 	virtual void setPosition(int x, int y) = 0;
 	virtual void setSize(int w, int h) = 0;
-
-	virtual void draw() = 0;
 };

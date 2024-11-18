@@ -1,12 +1,15 @@
-#include "WindowSDL.h"
+#include <SDL.h>
 
+#include "WindowSDL.h"
 #include "SpriteSDL.h"
 
-#include "SDL.h"
+
+SDL_Window* WindowSDL::window = 0;
+SDL_Renderer* WindowSDL::renderer = 0;
 
 
 WindowSDL::WindowSDL()
-	: window(0), renderer(0), isOpen(false)
+	: isOpen(false)
 {
 
 }
@@ -92,7 +95,12 @@ void WindowSDL::beginDraw()
 
 void WindowSDL::drawSprite(Sprite* sprite, int x, int y)
 {
-	
+	SpriteSDL* s = reinterpret_cast<SpriteSDL*>(sprite);
+	if (!s->texture) {
+		return;
+	}
+
+	SDL_RenderCopyEx(renderer, s->texture, 0, &s->rect, 0.0, 0, SDL_FLIP_NONE);
 }
 
 void WindowSDL::endDraw()

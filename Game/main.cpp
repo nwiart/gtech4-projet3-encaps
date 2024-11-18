@@ -2,6 +2,8 @@
 #include "WindowRL.h"
 #include "WindowSDL.h"
 
+#include "Sprite.h"
+
 #include <iostream>
 using namespace std;
 
@@ -53,6 +55,11 @@ int main(int argc, char** argv)
 
 	window->createWindow(1280, 720, "Bouncing balls");
 
+	Sprite* sprite = window->createSprite();
+	sprite->loadTexture("pitballs.png");
+	sprite->setPosition(400, 300);
+	sprite->setSize(256, 128);
+
 	time_t t0 = 0, t1 = 0;
 
 	while (window->isWindowOpen()) {
@@ -65,6 +72,7 @@ int main(int argc, char** argv)
 		}
 
 		window->beginDraw();
+		window->drawSprite(sprite, 0, 0);
 		window->endDraw();
 	}
 

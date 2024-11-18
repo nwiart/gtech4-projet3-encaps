@@ -41,10 +41,13 @@ public:
 	virtual void endDraw() override;
 
 
+	static inline SDL_Renderer* getSDLRenderer() { return renderer; }
+
+
 private:
 
-	SDL_Window* window;
-	SDL_Renderer* renderer;
+	static SDL_Window* window;
+	static SDL_Renderer* renderer;
 
 	ColorRGBA backgroundColor;
 
