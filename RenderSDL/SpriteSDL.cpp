@@ -26,6 +26,12 @@ void SpriteSDL::destroyTexture()
 	}
 }
 
+void SpriteSDL::getPosition(int& x, int& y) const
+{
+	x = rect.x;
+	y = rect.y;
+}
+
 void SpriteSDL::setPosition(int x, int y)
 {
 	rect.x = x;

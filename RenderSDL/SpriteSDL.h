@@ -14,6 +14,8 @@ public:
 	virtual void loadTexture(const char* path) override;
 	virtual void destroyTexture() override;
 
+	virtual void getPosition(int& x, int& y) const override;
+
 	virtual void setPosition(int x, int y) override;
 	virtual void setSize(int w, int h) override;
 
