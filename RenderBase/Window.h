@@ -22,6 +22,7 @@ public:
 	virtual bool createWindow(int width, int height, const char* title) = 0;
 
 	virtual bool isWindowOpen() const = 0;
+	virtual void processEvents() = 0;
 
 	virtual void setTitle(const char* title) = 0;
 
@@ -31,5 +32,7 @@ public:
 
 	virtual void setBackgroundColor(float r, float g, float b) = 0;
 
+	virtual void beginDraw() = 0;
 	virtual void drawSprite(Sprite* sprite, int x, int y) = 0;
+	virtual void endDraw() = 0;
 };

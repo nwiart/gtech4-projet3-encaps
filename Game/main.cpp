@@ -27,6 +27,8 @@ int parse_cmd_args(int argc, char** argv);
 
 int main(int argc, char** argv)
 {
+	srand(time(0));
+
 	if (parse_cmd_args(argc, argv) != 0) {
 		return 1;
 	}
@@ -38,7 +40,7 @@ int main(int argc, char** argv)
 		window = new WindowSDL();
 		break;
 	case RAYLIB:
-		window = new WindowRL();
+		//window = new WindowRL();
 		break;
 	}
 
@@ -51,11 +53,24 @@ int main(int argc, char** argv)
 
 	window->createWindow(1280, 720, "Bouncing balls");
 
-	while (window->isWindowOpen()) {
+	time_t t0 = 0, t1 = 0;
 
+	while (window->isWindowOpen()) {
+		window->processEvents();
+
+		t1 = time(0);
+		if (t1 != t0) {
+			t0 = t1;
+			window->setBackgroundColor(rand() / (float) RAND_MAX, rand() / (float) RAND_MAX, rand() / (float) RAND_MAX);
+		}
+
+		window->beginDraw();
+		window->endDraw();
 	}
 
 	window->quit();
+
+	delete window;
 }
 
 
