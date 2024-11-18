@@ -2,6 +2,7 @@
 
 
 SpriteRL::SpriteRL()
+    : rect({0, 0, 100, 100})
 {
 
 }
@@ -18,18 +19,19 @@ void SpriteRL::destroyTexture()
 
 void SpriteRL::setPosition(int newX, int newY)
 {
-    x = newX;
-    y = newY;
+    rect.x = newX;
+    rect.y = newY;
 }
 
 void SpriteRL::getPosition(int& outX, int& outY) const
 {
-    outX = x;
-    outY = y;
+    outX = rect.x;
+    outY = rect.y;
 }
 
 void SpriteRL::setSize(int w, int h)
 {
-
+    rect.width = w;
+    rect.height = h;
 }
 

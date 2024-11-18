@@ -21,6 +21,5 @@ public:
 
 private:
 	Texture2D s;
-	int x; 
-	int y;
+	Rectangle rect;
 };

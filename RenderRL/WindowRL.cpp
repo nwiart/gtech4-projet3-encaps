@@ -70,9 +70,8 @@ void WindowRL::drawSprite(Sprite* sprite, int x, int y)
     {
         return;
     }
-    
 
-    DrawTexture(s->s, s->x, s->y, WHITE);
+    DrawTexturePro(s->s, Rectangle{ 0, 0,  (float)s->s.width,  (float)s->s.height }, s->rect, {s->rect.width / 2, s->rect.height / 2}, 0, WHITE);
 }
 
 
