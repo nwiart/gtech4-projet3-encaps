@@ -46,7 +46,7 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
-	Color backgroundColor;
+	ColorRGBA backgroundColor;
 
 	bool isOpen;
 };

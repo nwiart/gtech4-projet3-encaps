@@ -41,6 +41,7 @@ bool WindowSDL::createWindow(int width, int height, const char* title)
 	}
 
 	SDL_SetWindowTitle(window, title);
+	SDL_RenderSetVSync(renderer, true);
 
 	isOpen = true;
 
@@ -77,7 +78,7 @@ Sprite* WindowSDL::createSprite(const char* imagePath)
 
 void WindowSDL::setBackgroundColor(float r, float g, float b)
 {
-	backgroundColor = Color(r, g, b);
+	backgroundColor = ColorRGBA(r, g, b);
 }
 
 void WindowSDL::beginDraw()
