@@ -4,6 +4,9 @@
 
 #include "Sprite.h"
 
+#include "Config.h"
+#include "GameObject.h"
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -25,55 +28,13 @@ static RenderImplementation impl =
 #endif
 
 
-class GameObject
-{
-public:
-
-	GameObject() { }
-	GameObject(Sprite* s);
-
-	void update();
-
-	inline Sprite* getSprite() const { return sprite; }
-
-	inline void setVelocity(float x, float y) { velX = x; velY = y; }
-
-
-private:
-
-	Sprite* sprite;
-	float posX;
-	float posY;
-	float velX;
-	float velY;
-};
-
-GameObject::GameObject(Sprite* s)
-	: sprite(s), velX(0.0F), velY(0.0F)
-{
-	int x, y;
-	s->getPosition(x, y);
-	posX = x;
-	posY = y;
-}
-
-void GameObject::update()
-{
-	posX += velX;
-	posY += velY;
-
-	if (posX < 0 || posX >= 1280) {
-		velX = -velX;
-	}
-	if (posY < 0 || posY >= 720) {
-		velY = -velY;
-	}
-
-	sprite->setPosition(posX, posY);
-}
+Window* window = 0;
+vector<GameObject> objects;
 
 
 int parse_cmd_args(int argc, char** argv);
+
+void spawn_random_object();
 
 
 int main(int argc, char** argv)
@@ -84,7 +45,6 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
-	Window* window = 0;
 	switch (impl)
 	{
 	case SDL:
@@ -101,10 +61,7 @@ int main(int argc, char** argv)
 	}
 
 	window->initialize();
-
-	window->createWindow(1280, 720, "Bouncing balls");
-
-	vector<GameObject> objects;
+	window->createWindow(GAME_WIDTH, GAME_HEIGHT, "Bouncing balls");
 
 	time_t t0 = 0, t1 = 0;
 
@@ -116,13 +73,7 @@ int main(int argc, char** argv)
 			t0 = t1;
 			window->setBackgroundColor(rand() / (float) RAND_MAX, rand() / (float) RAND_MAX, rand() / (float) RAND_MAX);
 
-			Sprite* sprite = window->createSprite();
-			sprite->loadTexture("pitballs.png");
-			sprite->setPosition(400, 300);
-			sprite->setSize(80, 80);
-
-			objects.emplace_back(sprite);
-			objects.back().setVelocity((rand() / (float)RAND_MAX - 0.5F) * 20.0F, (rand() / (float)RAND_MAX - 0.5F) * 20.0F);
+			spawn_random_object();
 		}
 
 		window->beginDraw();
@@ -151,4 +102,15 @@ int parse_cmd_args(int argc, char** argv)
 	}
 
 	return 0;
+}
+
+void spawn_random_object()
+{
+	Sprite* sprite = window->createSprite();
+	sprite->loadTexture("pitballs.png");
+	sprite->setPosition(400, 300);
+	sprite->setSize(80, 80);
+
+	objects.emplace_back(sprite);
+	objects.back().setVelocity((rand() / (float)RAND_MAX - 0.5F) * 20.0F, (rand() / (float)RAND_MAX - 0.5F) * 20.0F);
 }
