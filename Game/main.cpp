@@ -55,10 +55,14 @@ int main(int argc, char** argv)
 
 	window->createWindow(1280, 720, "Bouncing balls");
 
-	Sprite* sprite = window->createSprite();
-	sprite->loadTexture("pitballs.png");
-	sprite->setPosition(400, 300);
-	sprite->setSize(256, 128);
+	Sprite* sprites[6];
+	for (int i = 0; i < 6; i++) {
+		Sprite* sprite = window->createSprite();
+		sprite->loadTexture("pitballs.png");
+		sprite->setPosition(rand() / 16, rand() / 16);
+		sprite->setSize(80, 80);
+		sprites[i] = sprite;
+	}
 
 	time_t t0 = 0, t1 = 0;
 
@@ -72,7 +76,10 @@ int main(int argc, char** argv)
 		}
 
 		window->beginDraw();
-		window->drawSprite(sprite, 0, 0);
+		for (int i = 0; i < 6; i++) {
+			sprites[i]->setPosition(rand() / 16, rand() / 16);
+			window->drawSprite(sprites[i], 0, 0);
+		}
 		window->endDraw();
 	}
 
