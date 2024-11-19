@@ -10,7 +10,9 @@
 #include "GameObject.h"
 
 #include <iostream>
+#include <string>
 #include <vector>
+#include <chrono>
 using namespace std;
 
 
@@ -70,25 +72,38 @@ int main(int argc, char** argv)
 
 	time_t t0 = 0, t1 = 0;
 
+	auto tt0 = chrono::high_resolution_clock::now();
+	auto tt1 = tt0;
+	int fps = 0;
+
 	while (window->isWindowOpen()) {
+		tt0 = tt1;
+		tt1 = chrono::high_resolution_clock::now();
+
 		window->processEvents();
 
 		t1 = time(0);
 		if (t1 != t0) {
 			t0 = t1;
-			window->setBackgroundColor(rand() / (float) RAND_MAX, rand() / (float) RAND_MAX, rand() / (float) RAND_MAX);
+			window->setBackgroundColor(rand() / 2 / (float) RAND_MAX, rand() / 2 / (float) RAND_MAX, rand() / 2 / (float) RAND_MAX);
 
 			spawn_random_object();
+
+			// Update FPS.
+			double ms = chrono::duration_cast<chrono::milliseconds>(tt1 - tt0).count() / 1000.0;
+			fps = (int) round(1.0 / ms);
 		}
 
 		window->beginDraw();
-		for (GameObject& obj : objects) {
-			obj.update();
-			window->drawSprite(obj.getSprite());
+		{
+			for (GameObject& obj : objects) {
+				obj.update();
+				window->drawSprite(obj.getSprite());
+			}
+
+			std::string msg = std::to_string(fps) + " FPS";
+			f->renderText(msg.c_str(), 10, 10);
 		}
-
-		f->renderText("AKHVBgbiue it's a message from ur président avec accents vindieu.", 10, 10);
-
 		window->endDraw();
 	}
 
