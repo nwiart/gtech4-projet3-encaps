@@ -2,6 +2,7 @@
 #include "WindowRL.h"
 
 #include "SpriteRL.h"
+#include "FontRL.h"
 
 
 WindowRL::WindowRL()
@@ -52,6 +53,12 @@ Sprite* WindowRL::createSprite()
     return s;
 }
 
+FontBase* WindowRL::createFont()
+{
+    FontRL* f = new FontRL();
+    return f;
+}
+
 void WindowRL::setBackgroundColor(float r, float g, float b)
 {
     color = ColorRGBA(r, g, b);
@@ -76,6 +83,9 @@ void WindowRL::drawSprite(Sprite* sprite)
     DrawTexturePro(s->s, Rectangle{ 0, 0,  (float)s->s.width,  (float)s->s.height }, s->rect, {s->rect.width / 2, s->rect.height / 2}, 0, Color{c.getR(), c.getG(), c.getB(), 255});
 }
 
+void WindowRL::drawText(Text* txt) 
+{
+}
 
 void WindowRL::endDraw()
 {

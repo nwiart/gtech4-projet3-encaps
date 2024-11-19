@@ -21,12 +21,24 @@
     <ClCompile Include="SpriteRL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FontRL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WindowRL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SpriteRL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FontRL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

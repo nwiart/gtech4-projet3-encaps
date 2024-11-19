@@ -53,7 +53,7 @@ int main(int argc, char** argv)
 		window = new WindowSDL();
 		break;
 	case RAYLIB:
-		//window = new WindowRL();
+		window = new WindowRL();
 		break;
 	}
 
