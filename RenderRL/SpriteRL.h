@@ -17,9 +17,11 @@ public:
 	virtual void setPosition(int x, int y) override;
 	virtual void getPosition(int& x, int& y) const override;
 	virtual void setSize(int w, int h) override;
+	virtual void setColor(ColorRGBA color) override;
 
 
 private:
 	Texture2D s;
 	Rectangle rect;
+	ColorRGBA color;
 };

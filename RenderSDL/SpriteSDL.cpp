@@ -46,3 +46,8 @@ void SpriteSDL::setSize(int w, int h)
 	rect.w = w;
 	rect.h = h;
 }
+
+void SpriteSDL::setColor(ColorRGBA color)
+{
+	SDL_SetTextureColorMod(texture, color.getR(), color.getG(), color.getB());
+}

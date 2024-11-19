@@ -18,6 +18,7 @@ public:
 
 	virtual void setPosition(int x, int y) override;
 	virtual void setSize(int w, int h) override;
+	virtual void setColor(ColorRGBA color) override;
 
 
 private:

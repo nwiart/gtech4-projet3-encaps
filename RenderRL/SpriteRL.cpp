@@ -35,3 +35,7 @@ void SpriteRL::setSize(int w, int h)
     rect.height = h;
 }
 
+void SpriteRL::setColor(ColorRGBA c)
+{
+    color = c;
+}

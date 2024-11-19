@@ -107,9 +107,10 @@ int parse_cmd_args(int argc, char** argv)
 void spawn_random_object()
 {
 	Sprite* sprite = window->createSprite();
-	sprite->loadTexture("pitballs.png");
+	sprite->loadTexture("circle.png");
 	sprite->setPosition(400, 300);
 	sprite->setSize(80, 80);
+	sprite->setColor(ColorRGBA(rand() / (float)RAND_MAX, rand() / (float)RAND_MAX, rand() / (float)RAND_MAX));
 
 	objects.emplace_back(sprite);
 	objects.back().setVelocity((rand() / (float)RAND_MAX - 0.5F) * 20.0F, (rand() / (float)RAND_MAX - 0.5F) * 20.0F);
