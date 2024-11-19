@@ -16,6 +16,8 @@ GameObject::GameObject(Sprite* s)
 void GameObject::update()
 {
 	// Integrate.
+	velY += 1.0F;
+
 	posX += velX;
 	posY += velY;
 
