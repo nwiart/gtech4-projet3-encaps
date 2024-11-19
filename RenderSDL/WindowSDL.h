@@ -33,6 +33,7 @@ public:
 
 	// Drawing methods.
 	virtual Sprite* createSprite() override;
+	virtual Font* createFont() override;
 
 	virtual void setBackgroundColor(float r, float g, float b) override;
 

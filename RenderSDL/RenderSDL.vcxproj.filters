@@ -21,12 +21,18 @@
     <ClCompile Include="SpriteSDL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FontSDL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WindowSDL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SpriteSDL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FontSDL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

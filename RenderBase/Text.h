@@ -14,5 +14,4 @@ public:
     virtual void setSize(int w, int h) = 0;
 
     virtual void setColor(ColorRGBA color) = 0;
-
 };

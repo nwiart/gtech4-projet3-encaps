@@ -2,6 +2,7 @@
 
 #include "WindowSDL.h"
 #include "SpriteSDL.h"
+#include "FontSDL.h"
 
 
 SDL_Window* WindowSDL::window = 0;
@@ -80,6 +81,12 @@ Sprite* WindowSDL::createSprite()
 {
 	SpriteSDL* s = new SpriteSDL();
 	return s;
+}
+
+Font* WindowSDL::createFont()
+{
+	FontSDL* f = new FontSDL();
+	return f;
 }
 
 void WindowSDL::setBackgroundColor(float r, float g, float b)
