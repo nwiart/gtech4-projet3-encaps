@@ -4,7 +4,6 @@
 
 #include "Sprite.h"
 #include "Font.h"
-#include "Text.h"
 
 #include "Config.h"
 #include "GameObject.h"

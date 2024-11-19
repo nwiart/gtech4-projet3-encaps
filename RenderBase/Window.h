@@ -2,7 +2,6 @@
 
 class Sprite;
 class FontBase;
-class Text;
 
 
 class Window
@@ -37,6 +36,5 @@ public:
 
 	virtual void beginDraw() = 0;
 	virtual void drawSprite(Sprite* sprite) = 0;
-	virtual void drawText(Text* text) = 0;
 	virtual void endDraw() = 0;
 };

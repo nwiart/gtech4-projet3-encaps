@@ -36,7 +36,6 @@ public:
 
 	virtual void beginDraw() override;
 	virtual void drawSprite(Sprite* sprite) override;
-	virtual void drawText(Text* text) override;
 	virtual void endDraw() override;
 
 

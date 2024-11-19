@@ -21,13 +21,11 @@
   <ItemGroup>
     <ClCompile Include="FontSDL.cpp" />
     <ClCompile Include="SpriteSDL.cpp" />
-    <ClCompile Include="TextSDL.cpp" />
     <ClCompile Include="WindowSDL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FontSDL.h" />
     <ClInclude Include="SpriteSDL.h" />
-    <ClInclude Include="TextSDL.h" />
     <ClInclude Include="WindowSDL.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

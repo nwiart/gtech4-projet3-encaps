@@ -83,10 +83,6 @@ void WindowRL::drawSprite(Sprite* sprite)
     DrawTexturePro(s->s, Rectangle{ 0, 0,  (float)s->s.width,  (float)s->s.height }, s->rect, {s->rect.width / 2, s->rect.height / 2}, 0, Color{c.getR(), c.getG(), c.getB(), 255});
 }
 
-void WindowRL::drawText(Text* txt) 
-{
-}
-
 void WindowRL::endDraw()
 {
     EndDrawing();
