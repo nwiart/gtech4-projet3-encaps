@@ -1,7 +1,8 @@
 #pragma once
 
 class Sprite;
-class Font;
+class FontBase;
+class Text;
 
 
 class Window
@@ -30,11 +31,12 @@ public:
 
 	// Drawing methods.
 	virtual Sprite* createSprite() = 0;
-	virtual Font* createFont() = 0;
+	virtual FontBase* createFont() = 0;
 
 	virtual void setBackgroundColor(float r, float g, float b) = 0;
 
 	virtual void beginDraw() = 0;
-	virtual void drawSprite(Sprite* sprite, int x, int y) = 0;
+	virtual void drawSprite(Sprite* sprite) = 0;
+	virtual void drawText(Text* text) = 0;
 	virtual void endDraw() = 0;
 };

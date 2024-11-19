@@ -79,7 +79,7 @@ int main(int argc, char** argv)
 		window->beginDraw();
 		for (GameObject& obj : objects) {
 			obj.update();
-			window->drawSprite(obj.getSprite(), 0, 0);
+			window->drawSprite(obj.getSprite());
 		}
 		window->endDraw();
 	}

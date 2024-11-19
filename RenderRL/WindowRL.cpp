@@ -63,7 +63,7 @@ void WindowRL::beginDraw()
     ClearBackground(Color{ color.getR(), color.getG(), color.getB(), color.getA()});
 }
 
-void WindowRL::drawSprite(Sprite* sprite, int x, int y)
+void WindowRL::drawSprite(Sprite* sprite)
 {
     SpriteRL* s = reinterpret_cast<SpriteRL*>(sprite);
 

@@ -33,12 +33,13 @@ public:
 
 	// Drawing methods.
 	virtual Sprite* createSprite() override;
-	virtual Font* createFont() override;
+	virtual FontBase* createFont() override;
 
 	virtual void setBackgroundColor(float r, float g, float b) override;
 
 	virtual void beginDraw() override;
-	virtual void drawSprite(Sprite* sprite, int x, int y) override;
+	virtual void drawSprite(Sprite* sprite) override;
+	virtual void drawText(Text* text) override;
 	virtual void endDraw() override;
 
 

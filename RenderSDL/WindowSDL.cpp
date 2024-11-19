@@ -3,6 +3,7 @@
 #include "WindowSDL.h"
 #include "SpriteSDL.h"
 #include "FontSDL.h"
+#include "TextSDL.h"
 
 
 SDL_Window* WindowSDL::window = 0;
@@ -83,7 +84,7 @@ Sprite* WindowSDL::createSprite()
 	return s;
 }
 
-Font* WindowSDL::createFont()
+FontBase* WindowSDL::createFont()
 {
 	FontSDL* f = new FontSDL();
 	return f;
@@ -100,7 +101,7 @@ void WindowSDL::beginDraw()
 	SDL_RenderClear(renderer);
 }
 
-void WindowSDL::drawSprite(Sprite* sprite, int x, int y)
+void WindowSDL::drawSprite(Sprite* sprite)
 {
 	SpriteSDL* s = reinterpret_cast<SpriteSDL*>(sprite);
 	if (!s->texture) {
@@ -108,6 +109,12 @@ void WindowSDL::drawSprite(Sprite* sprite, int x, int y)
 	}
 
 	SDL_RenderCopyEx(renderer, s->texture, 0, &s->rect, 0.0, 0, SDL_FLIP_NONE);
+}
+
+void WindowSDL::drawText(Text* text)
+{
+	TextSDL* t = reinterpret_cast<TextSDL*>(text);
+	SDL_RenderCopy(renderer, t->texture, 0, &t->rect);
 }
 
 void WindowSDL::endDraw()

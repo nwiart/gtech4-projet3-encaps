@@ -1,5 +1,6 @@
 #include <SDL_ttf.h>
 
+#include "WindowSDL.h"
 #include "FontSDL.h"
 
 
@@ -29,4 +30,12 @@ void FontSDL::destroyFont()
 		TTF_CloseFont(font);
 		font = 0;
 	}
+}
+
+Text* FontSDL::renderText(const char* str)
+{
+	SDL_Surface* s = TTF_RenderText_Blended(font, str, {255, 255, 255, 255});
+	SDL_Texture* t = SDL_CreateTextureFromSurface(WindowSDL::getSDLRenderer(), s);
+
+	SDL_FreeSurface(s);
 }
