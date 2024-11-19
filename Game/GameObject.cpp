@@ -22,9 +22,11 @@ void GameObject::update()
 	// Collision test against window borders.
 	if (posX < 0 || posX >= GAME_WIDTH) {
 		velX = -velX;
+		setVelocity(velX * 0.98, velY * 0.98);
 	}
 	if (posY < 0 || posY >= GAME_HEIGHT) {
 		velY = -velY;
+		setVelocity(velX * 0.5, velY * 0.5);
 	}
 
 	sprite->setPosition(posX, posY);
