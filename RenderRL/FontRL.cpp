@@ -22,5 +22,5 @@ void FontRL::destroyFont()
 
 void FontRL::renderText(const char* str, int x, int y)
 {
-    DrawText(str, x, y, 0, WHITE);
+    DrawTextEx(font, str, Vector2{(float)x ,(float)y}, 16, 0, WHITE);
 }
