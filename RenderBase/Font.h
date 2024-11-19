@@ -10,5 +10,5 @@ public:
     virtual void loadFont(const char* path) = 0;
     virtual void destroyFont() = 0;
 
-    virtual Text* renderText(const char* str) = 0;
+    virtual void renderText(const char* str, int x, int y) = 0;
 };

@@ -2,6 +2,8 @@
 
 #include "Font.h"
 
+#define NUM_GLYPHS 256
+
 typedef struct _TTF_Font TTF_Font;
 
 
@@ -17,9 +19,11 @@ public:
 	virtual void loadFont(const char* path) override;
 	virtual void destroyFont() override;
 
-	virtual Text* renderText(const char* str) override;
+	virtual void renderText(const char* str, int x, int y) override;
 
 private:
 
 	TTF_Font* font;
+	SDL_Texture* textureAtlas;
+	SDL_Rect glyphRects[NUM_GLYPHS];
 };

@@ -3,6 +3,8 @@
 #include "WindowSDL.h"
 
 #include "Sprite.h"
+#include "Font.h"
+#include "Text.h"
 
 #include "Config.h"
 #include "GameObject.h"
@@ -51,7 +53,7 @@ int main(int argc, char** argv)
 		window = new WindowSDL();
 		break;
 	case RAYLIB:
-		window = new WindowRL();
+		//window = new WindowRL();
 		break;
 	}
 
@@ -62,6 +64,9 @@ int main(int argc, char** argv)
 
 	window->initialize();
 	window->createWindow(GAME_WIDTH, GAME_HEIGHT, "Bouncing balls");
+
+	FontBase* f = window->createFont();
+	f->loadFont("trebuc.ttf");
 
 	time_t t0 = 0, t1 = 0;
 
@@ -81,6 +86,9 @@ int main(int argc, char** argv)
 			obj.update();
 			window->drawSprite(obj.getSprite());
 		}
+
+		f->renderText("AKHVBgbiue it's a message from ur président avec accents vindieu.", 10, 10);
+
 		window->endDraw();
 	}
 

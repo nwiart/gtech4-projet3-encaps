@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <SDL_ttf.h>
 
 #include "WindowSDL.h"
 #include "SpriteSDL.h"
@@ -23,7 +24,7 @@ WindowSDL::~WindowSDL()
 
 bool WindowSDL::initialize()
 {
-	return SDL_Init(SDL_INIT_VIDEO) == 0;
+	return SDL_Init(SDL_INIT_VIDEO) == 0 && TTF_Init() == 0;
 }
 
 void WindowSDL::quit()
