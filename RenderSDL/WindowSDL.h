@@ -2,6 +2,7 @@
 
 #include "Window.h"
 #include "Color.h"
+#include "InputSDL.h"
 
 typedef struct SDL_Window SDL_Window;
 typedef struct SDL_Renderer SDL_Renderer;
@@ -30,6 +31,8 @@ public:
 
 	virtual void setTitle(const char* title) override;
 
+	virtual Input* getInput() override;
+
 
 	// Drawing methods.
 	virtual Sprite* createSprite() override;
@@ -49,6 +52,8 @@ private:
 
 	static SDL_Window* window;
 	static SDL_Renderer* renderer;
+
+	static InputSDL* input;
 
 	ColorRGBA backgroundColor;
 

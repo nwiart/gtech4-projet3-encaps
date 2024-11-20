@@ -20,11 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FontSDL.cpp" />
+    <ClCompile Include="InputSDL.cpp" />
     <ClCompile Include="SpriteSDL.cpp" />
     <ClCompile Include="WindowSDL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FontSDL.h" />
+    <ClInclude Include="InputSDL.h" />
     <ClInclude Include="SpriteSDL.h" />
     <ClInclude Include="WindowSDL.h" />
   </ItemGroup>

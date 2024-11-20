@@ -8,6 +8,7 @@
 
 SDL_Window* WindowSDL::window = 0;
 SDL_Renderer* WindowSDL::renderer = 0;
+InputSDL* WindowSDL::input = 0;
 
 
 WindowSDL::WindowSDL()
@@ -50,6 +51,8 @@ bool WindowSDL::createWindow(int width, int height, const char* title)
 	SDL_SetWindowTitle(window, title);
 	SDL_RenderSetVSync(renderer, true);
 
+	input = new InputSDL();
+
 	isOpen = true;
 
 	return true;
@@ -77,6 +80,11 @@ void WindowSDL::setTitle(const char* title)
 	SDL_SetWindowTitle(window, title);
 }
 
+Input* WindowSDL::getInput()
+{
+	return input;
+}
+
 
 Sprite* WindowSDL::createSprite()
 {
@@ -97,8 +105,12 @@ void WindowSDL::setBackgroundColor(float r, float g, float b)
 
 void WindowSDL::beginDraw()
 {
-	SDL_SetRenderDrawColor(renderer, backgroundColor.getR(), backgroundColor.getG(), backgroundColor.getB(), 255);
-	SDL_RenderClear(renderer);
+	SDL_SetRenderDrawColor(renderer, backgroundColor.getR(), backgroundColor.getG(), backgroundColor.getB(), 20);
+	//SDL_RenderClear(renderer);
+
+	SDL_Rect r = { 0, 0, 1280, 720 };
+	SDL_SetRenderDrawBlendMode(renderer, SDL_ComposeCustomBlendMode(SDL_BLENDFACTOR_SRC_ALPHA, SDL_BLENDFACTOR_ONE_MINUS_SRC_ALPHA, SDL_BLENDOPERATION_ADD, SDL_BLENDFACTOR_ONE, SDL_BLENDFACTOR_ONE, SDL_BLENDOPERATION_ADD));
+	SDL_RenderFillRect(renderer, &r);
 }
 
 void WindowSDL::drawSprite(Sprite* sprite)

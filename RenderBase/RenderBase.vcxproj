@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="Color.h" />
     <ClInclude Include="Font.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>

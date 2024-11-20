@@ -23,7 +23,7 @@ void FontSDL::loadFont(const char* path)
 		return;
 	}
 
-	font = TTF_OpenFont(path, 16);
+	font = TTF_OpenFont(path, 32);
 
 	SDL_Surface* surface, *text;
 	SDL_Rect dest;

@@ -131,7 +131,7 @@ void spawn_random_object()
 	Sprite* sprite = window->createSprite();
 	sprite->loadTexture("circle.png");
 	sprite->setPosition(400, 300);
-	sprite->setSize(80, 80);
+	sprite->setSize(20, 20);
 	sprite->setColor(ColorRGBA(rand() / (float)RAND_MAX, rand() / (float)RAND_MAX, rand() / (float)RAND_MAX));
 
 	objects.emplace_back(sprite);

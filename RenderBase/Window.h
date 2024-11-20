@@ -1,6 +1,7 @@
 #pragma once
 
 class Sprite;
+class Input;
 class FontBase;
 
 
@@ -26,6 +27,8 @@ public:
 	virtual void processEvents() = 0;
 
 	virtual void setTitle(const char* title) = 0;
+
+	virtual Input* getInput() = 0;
 
 
 	// Drawing methods.
