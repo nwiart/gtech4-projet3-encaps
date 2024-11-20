@@ -2,6 +2,7 @@
 
 class Input 
 {
-    virtual void getMousePosition() = 0;
+    virtual int getMouseX() = 0;
+    virtual int getMouseY() = 0;
     virtual bool isMouseBtnDown(int b) = 0;
 };
