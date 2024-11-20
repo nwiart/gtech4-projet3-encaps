@@ -24,6 +24,9 @@ GameObject::GameObject(Sprite* s)
 void GameObject::update()
 {
 	// Integrate.
+	velX *= 0.99F;
+	velY *= 0.99F;
+
 	velY += 0.2F;
 
 	Input* i = window->getInput();
@@ -31,7 +34,7 @@ void GameObject::update()
 		float dx = posX - i->getMouseX();
 		float dy = posY - i->getMouseY();
 		float dist = sqrt(dx * dx + dy * dy);
-		if (dist <= 160) {
+		if (dist <= 500) {
 			velX -= (dx / dist) * 4;
 			velY -= (dy / dist) * 4;
 		}
@@ -41,13 +44,19 @@ void GameObject::update()
 	posY += velY;
 
 	// Collision test against window borders.
-	if (posX < 0 || posX >= GAME_WIDTH) {
+	if (posX < 0 || posX > GAME_WIDTH) {
 		velX = -velX;
 		setVelocity(velX, velY);
+
+		if (posX < 0) posX = 0;
+		else posX = GAME_WIDTH;
 	}
-	if (posY < 0 || posY >= GAME_HEIGHT) {
+	if (posY < 0 || posY > GAME_HEIGHT) {
 		velY = -velY;
 		setVelocity(velX, velY);
+
+		if (posY < 0) posY = 0;
+		else posY = GAME_HEIGHT;
 	}
 
 	sprite->setPosition(posX, posY);
