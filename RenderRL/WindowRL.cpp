@@ -1,9 +1,8 @@
-
 #include "WindowRL.h"
-
 #include "SpriteRL.h"
 #include "FontRL.h"
 
+InputRL* WindowRL::input = 0;
 
 WindowRL::WindowRL()
 {
@@ -30,6 +29,9 @@ bool WindowRL::createWindow(int width, int height, const char* title)
     InitWindow(width, height, title);
     SetTargetFPS(60);
     SetConfigFlags(FLAG_VSYNC_HINT);
+
+    input = new InputRL();
+
     return true;
 }
 
@@ -45,6 +47,11 @@ void WindowRL::processEvents()
 void WindowRL::setTitle(const char* title)
 {
     SetWindowTitle(title);
+}
+
+Input* WindowRL::getInput()
+{
+    return input;
 }
 
 Sprite* WindowRL::createSprite()

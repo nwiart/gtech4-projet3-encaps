@@ -1,7 +1,5 @@
 #include "InputRL.h"
 
-
-
 int InputRL::getMouseX()
 {
     return GetMouseX();

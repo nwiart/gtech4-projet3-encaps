@@ -2,6 +2,7 @@
 
 #include "Window.h"
 #include "Color.h"
+#include "InputRL.h"
 
 
 class WindowRL : public Window
@@ -27,6 +28,7 @@ public:
 
 	virtual void setTitle(const char* title) override;
 
+	virtual Input* getInput() override;
 
 	// Drawing methods.
 	virtual Sprite* createSprite() override;
@@ -41,4 +43,6 @@ public:
 
 private:
 	ColorRGBA color;
+
+	static InputRL* input;
 };
