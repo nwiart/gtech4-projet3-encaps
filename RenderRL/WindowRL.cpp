@@ -2,17 +2,16 @@
 #include "SpriteRL.h"
 #include "FontRL.h"
 #include "InputRL.h"
+#include "rlgl.h"
 
 InputRL* WindowRL::input = 0;
 
 WindowRL::WindowRL()
 {
-
 }
 
 WindowRL::~WindowRL()
 {
-
 }
 
 bool WindowRL::initialize()
@@ -22,7 +21,6 @@ bool WindowRL::initialize()
 
 void WindowRL::quit()
 {
-
 }
 
 bool WindowRL::createWindow(int width, int height, const char* title)
@@ -75,7 +73,12 @@ void WindowRL::setBackgroundColor(float r, float g, float b)
 void WindowRL::beginDraw()
 {
     BeginDrawing();
-    ClearBackground(Color{ color.getR(), color.getG(), color.getB(), color.getA()});
+    //ClearBackground(Color{ color.getR(), color.getG(), color.getB(), color.getA()});
+    
+    rlSetBlendFactorsSeparate(0x0302, 0x0303, 1, 0x0303, 0x8006, 0x8006);
+    BeginBlendMode(BLEND_CUSTOM_SEPARATE);
+    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Color{ color.getR(), color.getG(), color.getB(), 20 });
+    EndBlendMode();
 }
 
 void WindowRL::drawSprite(Sprite* sprite)
