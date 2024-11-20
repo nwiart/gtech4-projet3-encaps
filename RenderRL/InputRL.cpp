@@ -12,5 +12,5 @@ int InputRL::getMouseY()
 
 bool InputRL::isMouseBtnDown(int b)
 {
-    return IsMouseButtonPressed(b);
+    return IsMouseButtonDown(b);
 }
