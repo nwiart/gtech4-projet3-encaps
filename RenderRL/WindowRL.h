@@ -2,7 +2,8 @@
 
 #include "Window.h"
 #include "Color.h"
-#include "InputRL.h"
+
+class InputRL;
 
 
 class WindowRL : public Window

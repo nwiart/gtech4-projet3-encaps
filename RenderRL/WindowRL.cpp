@@ -1,6 +1,7 @@
 #include "WindowRL.h"
 #include "SpriteRL.h"
 #include "FontRL.h"
+#include "InputRL.h"
 
 InputRL* WindowRL::input = 0;
 
