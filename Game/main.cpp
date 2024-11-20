@@ -135,5 +135,5 @@ void spawn_random_object()
 	sprite->setColor(ColorRGBA(rand() / (float)RAND_MAX, rand() / (float)RAND_MAX, rand() / (float)RAND_MAX));
 
 	objects.emplace_back(sprite);
-	objects.back().setVelocity((rand() / (float)RAND_MAX - 0.5F) * 20.0F, (rand() / (float)RAND_MAX - 0.5F) * 20.0F);
+	objects.back().setVelocity((rand() / (float)RAND_MAX - 0.5F) * 5.0F, (rand() / (float)RAND_MAX - 0.5F) * 5.0F);
 }
