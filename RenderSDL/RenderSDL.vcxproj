@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="FontSDL.cpp" />
     <ClCompile Include="InputSDL.cpp" />
+    <ClCompile Include="SoundSDL.cpp" />
     <ClCompile Include="SpriteSDL.cpp" />
     <ClCompile Include="TextureSDL.cpp" />
     <ClCompile Include="WindowSDL.cpp" />
@@ -28,6 +29,7 @@
   <ItemGroup>
     <ClInclude Include="FontSDL.h" />
     <ClInclude Include="InputSDL.h" />
+    <ClInclude Include="SoundSDL.h" />
     <ClInclude Include="SpriteSDL.h" />
     <ClInclude Include="TextureSDL.h" />
     <ClInclude Include="WindowSDL.h" />
@@ -127,7 +129,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)RenderBase;$(SolutionDir)libs\SDL2\include;$(SolutionDir)libs\SDL2_image\include;$(SolutionDir)libs\SDL2_ttf\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)RenderBase;$(SolutionDir)libs\SDL2\include;$(SolutionDir)libs\SDL2_image\include;$(SolutionDir)libs\SDL2_ttf\include;$(SolutionDir)libs\SDL2_mixer\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -135,8 +137,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)libs\SDL2\lib\x64;$(SolutionDir)libs\SDL2_image\lib\x64;$(SolutionDir)libs\SDL2_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\SDL2\lib\x64;$(SolutionDir)libs\SDL2_image\lib\x64;$(SolutionDir)libs\SDL2_ttf\lib\x64;$(SolutionDir)libs\SDL2_mixer\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

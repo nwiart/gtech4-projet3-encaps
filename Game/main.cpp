@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 		window = new WindowSDL();
 		break;
 	case RAYLIB:
-		window = new WindowRL();
+		//window = new WindowRL();
 		break;
 	}
 
@@ -71,7 +71,8 @@ int main(int argc, char** argv)
 	window->initialize();
 	window->createWindow(GAME_WIDTH, GAME_HEIGHT, "Bouncing balls");
 
-	//sound->loadSound("stab.mp3");
+	sound = window->createSound();
+	sound->loadSound("stab.mp3");
 
 	// Resource loading.
 	FontBase* f = window->createFont();
@@ -104,7 +105,7 @@ int main(int argc, char** argv)
 			fps = (int) round(1.0 / ms);
 		}
 
-		//sound->playSound();
+		sound->playSound();
 
 		window->beginDraw();
 		{
@@ -119,7 +120,7 @@ int main(int argc, char** argv)
 		window->endDraw();
 	}
 
-	//sound->destroySound();
+	delete sound;
 	window->quit();
 
 	delete window;

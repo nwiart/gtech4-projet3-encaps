@@ -1,10 +1,12 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 
 #include "WindowSDL.h"
 #include "SpriteSDL.h"
 #include "FontSDL.h"
 #include "TextureSDL.h"
+#include "SoundSDL.h"
 
 
 SDL_Window* WindowSDL::window = 0;
@@ -25,7 +27,7 @@ WindowSDL::~WindowSDL()
 
 bool WindowSDL::initialize()
 {
-	return SDL_Init(SDL_INIT_VIDEO) == 0 && TTF_Init() == 0;
+	return SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) == 0 && TTF_Init() == 0 && Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 }
 
 void WindowSDL::quit()
@@ -104,6 +106,13 @@ TextureBase* WindowSDL::createTexture()
 	TextureSDL* t = new TextureSDL();
 	return t;
 }
+
+SoundBase* WindowSDL::createSound()
+{
+	SoundSDL* s = new SoundSDL();
+	return s;
+}
+
 
 void WindowSDL::setBackgroundColor(float r, float g, float b)
 {
