@@ -5,11 +5,14 @@
 
 #include "Window.h"
 #include "Input.h"
+#include "Sound.h"
 
 #include "math.h"
 
 
 extern Window* window;
+
+extern SoundBase* sound;
 
 
 GameObject::GameObject(Sprite* s)
@@ -48,12 +51,20 @@ void GameObject::update()
 		velX = -velX;
 		setVelocity(velX, velY);
 
+		if (velX >= 0.1F || velY >= 0.1F) {
+			sound->playSound();
+		}
+
 		if (posX < 0) posX = 0;
 		else posX = GAME_WIDTH;
 	}
 	if (posY < 0 || posY > GAME_HEIGHT) {
 		velY = -velY;
 		setVelocity(velX, velY);
+
+		if (velX >= 0.1F || velY >= 0.1F) {
+			sound->playSound();
+		}
 
 		if (posY < 0) posY = 0;
 		else posY = GAME_HEIGHT;

@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 	window->createWindow(GAME_WIDTH, GAME_HEIGHT, "Bouncing balls");
 
 	sound = window->createSound();
-	sound->loadSound("stab.mp3");
+	sound->loadSound("footstep.wav");
 
 	// Resource loading.
 	FontBase* f = window->createFont();
@@ -104,8 +104,6 @@ int main(int argc, char** argv)
 			double ms = chrono::duration_cast<chrono::milliseconds>(tt1 - tt0).count() / 1000.0;
 			fps = (int) round(1.0 / ms);
 		}
-
-		sound->playSound();
 
 		window->beginDraw();
 		{
