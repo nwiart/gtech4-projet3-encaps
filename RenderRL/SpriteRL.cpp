@@ -7,14 +7,10 @@ SpriteRL::SpriteRL()
 
 }
 
-void SpriteRL::loadTexture(const char* path)
+void SpriteRL::setTexture(Texture* txt)
 {
-    s = LoadTexture(path);
-}
-
-void SpriteRL::destroyTexture()
-{
-    UnloadTexture(s);
+    txtRL->getTexture();
+    txtRL = (TextureRL*)txt;
 }
 
 void SpriteRL::setPosition(int newX, int newY)
