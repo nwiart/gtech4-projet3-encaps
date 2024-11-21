@@ -123,7 +123,7 @@ void WindowSDL::beginDraw()
 void WindowSDL::drawSprite(Sprite* sprite)
 {
 	SpriteSDL* s = reinterpret_cast<SpriteSDL*>(sprite);
-	TextureSDL* t = reinterpret_cast<TextureSDL*>(s->texture);
+	TextureSDL* t = s->texture;
 	if (!t) {
 		return;
 	}
