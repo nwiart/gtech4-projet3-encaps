@@ -2,6 +2,8 @@
 
 #include "Sprite.h"
 
+class TextureSDL;
+
 
 class SpriteSDL : public Sprite
 {
@@ -11,8 +13,7 @@ public:
 
 	SpriteSDL();
 
-	virtual void loadTexture(const char* path) override;
-	virtual void destroyTexture() override;
+	virtual void setTexture(Texture* tex) override;
 
 	virtual void getPosition(int& x, int& y) const override;
 
@@ -24,5 +25,6 @@ public:
 private:
 
 	SDL_Rect rect;
-	SDL_Texture* texture;
+	ColorRGBA color;
+	TextureSDL* texture;
 };

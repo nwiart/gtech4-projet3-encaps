@@ -11,19 +11,9 @@ SpriteSDL::SpriteSDL()
 
 }
 
-void SpriteSDL::loadTexture(const char* path)
+void SpriteSDL::setTexture(Texture* tex)
 {
-	SDL_Surface* surface = IMG_Load(path);
-	texture = SDL_CreateTextureFromSurface(WindowSDL::getSDLRenderer(), surface);
-	SDL_FreeSurface(surface);
-}
-
-void SpriteSDL::destroyTexture()
-{
-	if (texture) {
-		SDL_DestroyTexture(texture);
-		texture = 0;
-	}
+	texture = reinterpret_cast<TextureSDL*>(tex);
 }
 
 void SpriteSDL::getPosition(int& x, int& y) const
@@ -49,5 +39,5 @@ void SpriteSDL::setSize(int w, int h)
 
 void SpriteSDL::setColor(ColorRGBA color)
 {
-	SDL_SetTextureColorMod(texture, color.getR(), color.getG(), color.getB());
+	this->color = color;
 }

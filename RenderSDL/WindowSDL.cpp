@@ -4,6 +4,7 @@
 #include "WindowSDL.h"
 #include "SpriteSDL.h"
 #include "FontSDL.h"
+#include "TextureSDL.h"
 
 
 SDL_Window* WindowSDL::window = 0;
@@ -116,11 +117,13 @@ void WindowSDL::beginDraw()
 void WindowSDL::drawSprite(Sprite* sprite)
 {
 	SpriteSDL* s = reinterpret_cast<SpriteSDL*>(sprite);
-	if (!s->texture) {
+	TextureSDL* t = reinterpret_cast<TextureSDL*>(s->texture);
+	if (!t) {
 		return;
 	}
 
-	SDL_RenderCopyEx(renderer, s->texture, 0, &s->rect, 0.0, 0, SDL_FLIP_NONE);
+	SDL_SetTextureColorMod(t->texture, s->color.getR(), s->color.getG(), s->color.getB());
+	SDL_RenderCopyEx(renderer, t->texture, 0, &s->rect, 0.0, 0, SDL_FLIP_NONE);
 }
 
 void WindowSDL::endDraw()
