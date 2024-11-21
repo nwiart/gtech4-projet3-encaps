@@ -1,6 +1,6 @@
 #pragma once
 
-class Sound 
+class SoundBase
 {
 public:
     virtual void loadSound(const char* path) = 0;
