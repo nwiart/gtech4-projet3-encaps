@@ -2,6 +2,7 @@
 
 #include "Color.h"
 
+class Texture;
 
 class Sprite
 {
@@ -13,8 +14,7 @@ public:
 
 	virtual ~Sprite() { }
 
-	virtual void loadTexture(const char* path) = 0;
-	virtual void destroyTexture() = 0;
+	virtual void setTexture(Texture* txt) = 0;
 
 	virtual void getPosition(int& x, int& y) const = 0;
 
