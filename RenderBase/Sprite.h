@@ -2,7 +2,7 @@
 
 #include "Color.h"
 
-class Texture;
+class TextureBase;
 
 class Sprite
 {
@@ -14,7 +14,7 @@ public:
 
 	virtual ~Sprite() { }
 
-	virtual void setTexture(Texture* txt) = 0;
+	virtual void setTexture(TextureBase* txt) = 0;
 
 	virtual void getPosition(int& x, int& y) const = 0;
 

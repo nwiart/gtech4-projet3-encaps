@@ -7,9 +7,8 @@ SpriteRL::SpriteRL()
 
 }
 
-void SpriteRL::setTexture(Texture* txt)
+void SpriteRL::setTexture(TextureBase* txt)
 {
-    txtRL->getTexture();
     txtRL = (TextureRL*)txt;
 }
 

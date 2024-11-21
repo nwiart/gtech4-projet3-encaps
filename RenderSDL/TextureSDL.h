@@ -3,7 +3,7 @@
 #include "Texture.h"
 
 
-class TextureSDL : public Texture
+class TextureSDL : public TextureBase
 {
 	friend class WindowSDL;
 
@@ -14,6 +14,7 @@ public:
 
 	virtual void loadTexture(const char* path) override;
 	virtual void destroyTexture() override;
+	virtual void* getTexture() const override;
 
 private:
 

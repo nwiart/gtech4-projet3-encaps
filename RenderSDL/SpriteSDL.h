@@ -13,7 +13,7 @@ public:
 
 	SpriteSDL();
 
-	virtual void setTexture(Texture* tex) override;
+	virtual void setTexture(TextureBase* tex) override;
 
 	virtual void getPosition(int& x, int& y) const override;
 

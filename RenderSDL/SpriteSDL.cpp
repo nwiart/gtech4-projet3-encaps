@@ -11,7 +11,7 @@ SpriteSDL::SpriteSDL()
 
 }
 
-void SpriteSDL::setTexture(Texture* tex)
+void SpriteSDL::setTexture(TextureBase* tex)
 {
 	texture = reinterpret_cast<TextureSDL*>(tex);
 }

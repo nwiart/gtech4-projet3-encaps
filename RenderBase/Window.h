@@ -3,7 +3,7 @@
 class Sprite;
 class Input;
 class FontBase;
-class Texture;
+class TextureBase;
 
 
 class Window
@@ -35,7 +35,7 @@ public:
 	// Drawing methods.
 	virtual Sprite* createSprite() = 0;
 	virtual FontBase* createFont() = 0;
-	virtual Texture* createTexture() = 0;
+	virtual TextureBase* createTexture() = 0;
 
 	virtual void setBackgroundColor(float r, float g, float b) = 0;
 

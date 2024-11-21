@@ -1,7 +1,7 @@
 #pragma once
 
 #include "raylib.h"
-#include "SoundBase.h"
+#include "Sound.h"
 
 class SoundRL : public SoundBase
 {
@@ -11,5 +11,4 @@ public:
     virtual void playSound(float volume = 1, float pitch = 1) override;
 private:
     Sound s;
-
 };

@@ -30,3 +30,8 @@ void TextureSDL::destroyTexture()
 		texture = 0;
 	}
 }
+
+void* TextureSDL::getTexture() const
+{
+	return nullptr;
+}

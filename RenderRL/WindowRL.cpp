@@ -65,6 +65,12 @@ FontBase* WindowRL::createFont()
     return f;
 }
 
+TextureBase* WindowRL::createTexture()
+{
+    TextureBase* t = new TextureRL();
+    return t;
+}
+
 void WindowRL::setBackgroundColor(float r, float g, float b)
 {
     color = ColorRGBA(r, g, b);
@@ -84,6 +90,8 @@ void WindowRL::beginDraw()
 void WindowRL::drawSprite(Sprite* sprite)
 {
     SpriteRL* s = reinterpret_cast<SpriteRL*>(sprite);
+    TextureRL* t = s->txtRL;
+    Texture2D* rlTex = (Texture2D*)t->getTexture();
 
     if (!s)
     {
@@ -91,7 +99,16 @@ void WindowRL::drawSprite(Sprite* sprite)
     }
 
     ColorRGBA& c = s->color;
-    DrawTexturePro(s->s, Rectangle{ 0, 0,  (float)s->s.width,  (float)s->s.height }, s->rect, {s->rect.width / 2, s->rect.height / 2}, 0, Color{c.getR(), c.getG(), c.getB(), 255});
+    DrawTexturePro(*rlTex, 
+        Rectangle{0, 0,  
+        (float)rlTex->width,
+        (float)rlTex->height}, 
+        s->rect, 
+        {s->rect.width / 2, 
+        s->rect.height / 2}, 
+        0, 
+        Color{c.getR(), c.getG(), c.getB(), 255}
+    );
 }
 
 void WindowRL::endDraw()

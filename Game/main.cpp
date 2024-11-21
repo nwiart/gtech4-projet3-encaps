@@ -5,6 +5,7 @@
 #include "Sprite.h"
 #include "Font.h"
 #include "Texture.h"
+#include "Sound.h"
 
 #include "Config.h"
 #include "GameObject.h"
@@ -33,8 +34,10 @@ static RenderImplementation impl =
 
 
 Window* window = 0;
-Texture* ballTexture = 0;
+TextureBase* ballTexture = 0;
 vector<GameObject> objects;
+
+SoundBase* sound = 0;
 
 
 int parse_cmd_args(int argc, char** argv);
@@ -68,6 +71,8 @@ int main(int argc, char** argv)
 	window->initialize();
 	window->createWindow(GAME_WIDTH, GAME_HEIGHT, "Bouncing balls");
 
+	//sound->loadSound("stab.mp3");
+
 	// Resource loading.
 	FontBase* f = window->createFont();
 	f->loadFont("trebuc.ttf");
@@ -99,6 +104,8 @@ int main(int argc, char** argv)
 			fps = (int) round(1.0 / ms);
 		}
 
+		//sound->playSound();
+
 		window->beginDraw();
 		{
 			for (GameObject& obj : objects) {
@@ -112,6 +119,7 @@ int main(int argc, char** argv)
 		window->endDraw();
 	}
 
+	//sound->destroySound();
 	window->quit();
 
 	delete window;

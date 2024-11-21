@@ -1,9 +1,9 @@
 #pragma once
 
-class Texture
+class TextureBase
 {
 public:
-    virtual ~Texture() { }
+    virtual ~TextureBase() { }
 
     virtual void loadTexture(const char* path) = 0;
     virtual void destroyTexture() = 0;

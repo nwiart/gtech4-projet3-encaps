@@ -3,7 +3,7 @@
 #include "raylib.h"
 #include "Texture.h"
 
-class TextureRL : public Texture
+class TextureRL : public TextureBase
 {
 public:
     virtual void loadTexture(const char* path) override;

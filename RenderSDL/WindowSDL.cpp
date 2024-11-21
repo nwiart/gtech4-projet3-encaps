@@ -99,7 +99,7 @@ FontBase* WindowSDL::createFont()
 	return f;
 }
 
-Texture* WindowSDL::createTexture()
+TextureBase* WindowSDL::createTexture()
 {
 	TextureSDL* t = new TextureSDL();
 	return t;

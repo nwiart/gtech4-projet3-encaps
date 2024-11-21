@@ -12,7 +12,7 @@ public:
 
 	SpriteRL();
 
-	virtual void setTexture(Texture* txt) override;
+	virtual void setTexture(TextureBase* txt) override;
 
 	virtual void setPosition(int x, int y) override;
 	virtual void getPosition(int& x, int& y) const override;
