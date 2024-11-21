@@ -2,6 +2,7 @@
 
 #include "Sprite.h"
 #include "raylib.h"
+#include "TextureRL.h"
 
 class SpriteRL : public Sprite
 {
@@ -11,8 +12,7 @@ public:
 
 	SpriteRL();
 
-	virtual void loadTexture(const char* path) override;
-	virtual void destroyTexture() override;
+	virtual void setTexture(Texture* txt) override;
 
 	virtual void setPosition(int x, int y) override;
 	virtual void getPosition(int& x, int& y) const override;
@@ -21,7 +21,7 @@ public:
 
 
 private:
-	Texture2D s;
+	TextureRL* txtRL;
 	Rectangle rect;
 	ColorRGBA color;
 };
