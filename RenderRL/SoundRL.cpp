@@ -12,6 +12,9 @@ void SoundRL::destroySound()
 
 void SoundRL::playSound(float volume, float pitch)
 {
+    if (IsSoundPlaying(s))
+        return;
+
     PlaySound(s);
     SetSoundPitch(s, pitch);
     SetSoundVolume(s, volume);

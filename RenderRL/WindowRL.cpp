@@ -3,6 +3,7 @@
 #include "FontRL.h"
 #include "InputRL.h"
 #include "rlgl.h"
+#include "SoundRL.h"
 
 InputRL* WindowRL::input = 0;
 
@@ -26,6 +27,7 @@ void WindowRL::quit()
 bool WindowRL::createWindow(int width, int height, const char* title)
 {
     InitWindow(width, height, title);
+    InitAudioDevice();
     SetTargetFPS(60);
     SetConfigFlags(FLAG_VSYNC_HINT);
 
@@ -69,6 +71,12 @@ TextureBase* WindowRL::createTexture()
 {
     TextureBase* t = new TextureRL();
     return t;
+}
+
+SoundBase* WindowRL::createSound()
+{
+    SoundBase* s = new SoundRL();
+    return s;
 }
 
 void WindowRL::setBackgroundColor(float r, float g, float b)

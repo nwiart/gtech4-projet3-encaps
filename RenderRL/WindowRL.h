@@ -35,6 +35,7 @@ public:
 	virtual Sprite* createSprite() override;
 	virtual FontBase* createFont() override;
 	virtual TextureBase* createTexture() override;
+	virtual SoundBase* createSound() override;
 
 	virtual void setBackgroundColor(float r, float g, float b) override;
 
