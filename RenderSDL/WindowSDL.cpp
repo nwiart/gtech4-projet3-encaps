@@ -99,6 +99,12 @@ FontBase* WindowSDL::createFont()
 	return f;
 }
 
+Texture* WindowSDL::createTexture()
+{
+	TextureSDL* t = new TextureSDL();
+	return t;
+}
+
 void WindowSDL::setBackgroundColor(float r, float g, float b)
 {
 	backgroundColor = ColorRGBA(r, g, b);

@@ -4,6 +4,7 @@
 
 #include "Sprite.h"
 #include "Font.h"
+#include "Texture.h"
 
 #include "Config.h"
 #include "GameObject.h"
@@ -32,6 +33,7 @@ static RenderImplementation impl =
 
 
 Window* window = 0;
+Texture* ballTexture = 0;
 vector<GameObject> objects;
 
 
@@ -66,8 +68,12 @@ int main(int argc, char** argv)
 	window->initialize();
 	window->createWindow(GAME_WIDTH, GAME_HEIGHT, "Bouncing balls");
 
+	// Resource loading.
 	FontBase* f = window->createFont();
 	f->loadFont("trebuc.ttf");
+
+	ballTexture = window->createTexture();
+	ballTexture->loadTexture("circle.png");
 
 	time_t t0 = 0, t1 = 0;
 
@@ -129,7 +135,7 @@ int parse_cmd_args(int argc, char** argv)
 void spawn_random_object()
 {
 	Sprite* sprite = window->createSprite();
-	sprite->loadTexture("circle.png");
+	sprite->setTexture(ballTexture);
 	sprite->setPosition(rand() % GAME_WIDTH, 200);
 	sprite->setSize(20, 20);
 	sprite->setColor(ColorRGBA(rand() / (float)RAND_MAX, rand() / (float)RAND_MAX, rand() / (float)RAND_MAX));
