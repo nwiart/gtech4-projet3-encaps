@@ -96,6 +96,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_SDL|x64'">
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_SDL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -150,6 +154,21 @@
       <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\Debug\</AdditionalLibraryDirectories>
       <AdditionalDependencies>RenderSDL.lib;RenderRL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+      <RootFolder>$(SolutionDir)</RootFolder>
+    </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy /Y /d "$(SolutionDir)libs\SDL2\lib\x64\*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\"
+xcopy /Y /d "$(SolutionDir)libs\SDL2_image\lib\x64\*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\"
+xcopy /Y /d "$(SolutionDir)libs\SDL2_ttf\lib\x64\*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\"
+xcopy /Y /d "$(SolutionDir)libs\SDL2_mixer\lib\x64\*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Raylib|x64'">
     <ClCompile>
@@ -165,6 +184,12 @@
       <AdditionalDependencies>RenderSDL.lib;RenderRL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\Debug\</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /d "$(SolutionDir)libs\SDL2\lib\x64\*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\"
+xcopy /Y /d "$(SolutionDir)libs\SDL2_image\lib\x64\*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\"
+xcopy /Y /d "$(SolutionDir)libs\SDL2_ttf\lib\x64\*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\"
+xcopy /Y /d "$(SolutionDir)libs\SDL2_mixer\lib\x64\*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
